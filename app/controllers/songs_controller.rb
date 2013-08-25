@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   include AWS::S3 
   BUCKET = 'eastelk'
- 
+
   def index
     @songs = Song.all
     @a_songs = AWS::S3::Bucket.find(BUCKET).objects
