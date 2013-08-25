@@ -4,5 +4,6 @@ Music sharing website with social features.
 Things to do:
 * Add testing for everything (oops)
 * Make songs be public/private
+* Make application.rb more concise 
 * Only admin users can upload/view private songs
 * Make the site look pretty with CSS, etc...
