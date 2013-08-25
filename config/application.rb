@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'yaml'
 
 Bundler.require(:default, Rails.env)
 
@@ -8,14 +9,20 @@ module Buffalohostage
   class Application < Rails::Application
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
-    AWS::S3::DEFAULT_HOST.replace "s3-us-west-2.amazonaws.com"
     if Rails.env == "production"
-    AWS::S3::Base.establish_connection!(
-      :s3_credentials => S3_CREDENTIALS
-    )
-    else 
-      
+      S3_CREDENTIALS = { :access_key_id => ENV['S3_KEY'], :secret_access_key =>
+                                      ENV['S3_SECRET']}
+    else
+      S3_CREDENTIALS = YAML.load(File.read("config/s3.yml"))
+      S3_CREDENTIALS[:access_key_id] = S3_CREDENTIALS["access_key_id"]
+      S3_CREDENTIALS[:secret_access_key] = S3_CREDENTIALS["secret_access_key"]
     end
+    AWS::S3::DEFAULT_HOST.replace "s3-us-west-2.amazonaws.com"
+    AWS::S3::Base.establish_connection!(
+      :access_key_id => S3_CREDENTIALS[:access_key_id],
+      :secret_access_key => S3_CREDENTIALS[:secret_access_key]
+    )
+    print S3_CREDENTIALS
   end
 end
 
