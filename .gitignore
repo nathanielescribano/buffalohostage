@@ -16,4 +16,4 @@
 /tmp
 
 # Private Info
-/config/application.rb
+/config/s3.yml

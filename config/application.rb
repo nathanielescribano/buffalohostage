@@ -9,11 +9,13 @@ module Buffalohostage
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
     AWS::S3::DEFAULT_HOST.replace "s3-us-west-2.amazonaws.com"
+    if Rails.env == "production"
     AWS::S3::Base.establish_connection!(
-      :access_key_id     => 'private', 
-      :secret_access_key => 'private'
+      :s3_credentials => S3_CREDENTIALS
     )
-  
+    else 
+      
+    end
   end
 end
 
