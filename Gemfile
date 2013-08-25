@@ -7,7 +7,13 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'aws-s3', :require => 'aws/s3'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
+end
+
+gem :production do 
+  gem 'pg', '0.15.1'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
