@@ -1,7 +1,7 @@
 <h1> Buffalo Hostage </h1>
 <ul>
   <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "Music", users_path %></li>
+  <li><%= link_to "Music", bands_path %></li>
   <% if signed_in? %>
     <li><%= link_to "Log Out", signout_path %></li>
   <% else  %>
