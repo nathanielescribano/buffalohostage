@@ -1,14 +1,11 @@
 class User < ActiveRecord::Base
+  BANDS = ["east elk", "haike", "nathaniel", "russell"] 
 
-  before_save do 
-    self.email = email.downcase
-    self.name = name.downcase
-  end
+  before_save :make_band, :create_remember_token, :format_user
 
-  before_save :create_remember_token
- 
-  has_many :songs
-   
+  scope :band, -> { where(band: true) }
+
+  has_many :songs 
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }, 
                      uniqueness: true 
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -18,10 +15,19 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true 
 
+  def format_user
+    self.name = name.downcase
+    self.email = email.downcase
+  end
+
   private
 
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
+    end
+
+    def make_band
+      self.band = true if BANDS.include? name
     end
 
 end
