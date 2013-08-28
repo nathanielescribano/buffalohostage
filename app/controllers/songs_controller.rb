@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   BUCKET = 'eastelk'
 
   def index
-    @songs = Song.all
+    @songs = Song.all # Fix this to show only user songs
     @a_songs = AWS::S3::Bucket.find(BUCKET).objects
   end
 

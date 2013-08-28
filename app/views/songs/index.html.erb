@@ -1,15 +1,5 @@
+<h1> Songs </h1>
 <ul>
-  <h2>Upload Song</h2>
-  <div>Only upload songs which you have the creative rights to.</div>
-  <%= form_tag upload_path, :method => "post", :multipart => true do %>
-    <%= file_field_tag "mp3file" %>
-    <%= submit_tag "upload" %>
-  <% end %>
-  <h2> Play Songs </h2>
-  <%= @songs.each do |song| %>
-    <% #change this part to a scope later %>
-    <% unless @songs.privacy %>
-      <td><%= song.title %></td>
-    <% end %> 
-  <% end %> 
+  <li><%= link_to "All Songs", %></li>
+  <li><%= link_to "New Song", new_user_song_path %></li>
 </ul>
