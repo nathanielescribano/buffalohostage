@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
+  has_many :songs 
+
   BANDS = ["east elk", "haike", "nathaniel", "russell"] 
 
   before_save :make_band, :create_remember_token, :format_user
 
   scope :band, -> { where(band: true) }
 
-  has_many :songs 
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }, 
                      uniqueness: true 
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
