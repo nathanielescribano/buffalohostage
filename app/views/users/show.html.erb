@@ -4,7 +4,10 @@
   <% @user_songs.each do |song| %>
     <div><%= format_song(song) %></div>
   <% end %>
+  <div> <%= link_to "Add Song", new_user_song_path(@user) %> </div>
 <% else %>
   <div> No songs </div>
-  <div> <%= link_to "Add Song", new_user_song_path(@user) %> 
+  %-- Replace redundancy? 
+  <div> <%= link_to "Add Song", new_user_song_path(@user) %> </div>
+  <div> Delete Song </div> 
 <% end %>

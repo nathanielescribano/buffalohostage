@@ -4,7 +4,7 @@ class SongsController < ApplicationController
   before_filter :get_user
 
   def get_user
-    @user = User.find(params[:user_id]) # what about current user?
+    @user = User.find(params[:user_id]) 
   end
 
   def index

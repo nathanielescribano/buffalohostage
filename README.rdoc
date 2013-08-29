@@ -5,15 +5,14 @@ Music sharing website with social features.
 Implemented:
 * Handles users
 * Handles bands (subset of users)
-* Has songs (not fully implemented)
+* Has songs (songs can be public/private and belong to certain users)
 
 To implement (priority):
+* Bands can upload songs
+* change routing to show band names instead of user_id
 * Add testing for everything (oops)
 * Anyone can stream songs 
 * Add mailer (introduce new users to the site) 
-* Make songs be public/private
-* Only band users can upload songs 
-* Make application.rb more concise 
 * Only band users can view private songs
 * Make the site look pretty with CSS, bootstrap, etc...
 

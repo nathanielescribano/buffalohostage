@@ -1,8 +1,4 @@
-<h1> Songs </h1>
-<ul>
-  <li><%= link_to "New Song", new_user_song_path %></li>
-</ul>
-<h2> My Songs </h2>
+<h1> <%= @user.name.titleize %> Songs </h1>
 <% if @any_songs %>
   <% @my_songs.each do |song| %>
     <div><%= format_song(song) %></div>
@@ -10,3 +6,4 @@
 <% else %>
   <div> No Songs for this band </div> 
 <% end %>
+<div> <%= link_to "See other bands", users_path %> </div>
