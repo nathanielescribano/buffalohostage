@@ -8,15 +8,21 @@ Implemented:
 * Has songs (songs can be public/private and belong to certain users)
 
 To implement (priority):
+* Add bootstrap menu bar 
 * Bands can upload songs
+* Show page only shows songs for band users
 * change routing to show band names instead of user_id
 * Add testing for everything (oops)
 * Anyone can stream songs 
 * Add mailer (introduce new users to the site) 
 * Only band users can view private songs
-* Make the site look pretty with CSS, bootstrap, etc...
+* Make the site look pretty with CSS, etc...
 
 To implement (low priority):
+* Songs have votes/likes
 * Add albums and artwork
 * Add track number (and ordering) 
 * Add javascript
+* Add bios to users 
+* Add user listing page
+* Tidy up and refactor code whenever possible 
