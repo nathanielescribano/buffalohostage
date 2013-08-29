@@ -1,16 +1,19 @@
 class SongsController < ApplicationController
   include AWS::S3 
+  require './app/helpers/sessions_helper.rb' # change this? 
   BUCKET = 'eastelk'
   before_filter :get_user
 
   def get_user
     @user = User.find(params[:user_id]) 
+    # how to use current_user from sessions_helper?? 
+    @current_user ||= User.find_by_remember_token(cookies[:remember_token])
   end
 
   def index
-    if @user.songs.count >= 1
+    is_band?(@current_user) ? @songs = @user.songs : @songs = @user.songs.public
+    if @songs.count >= 1
       @any_songs = true
-      @my_songs = @user.songs
       # @a_songs = AWS::S3::Bucket.find(BUCKET).objects
     else 
       @any_song = false 
@@ -63,4 +66,8 @@ class SongsController < ApplicationController
       params.require(:song).permit(:title, :privacy) 
     end
  
+    def is_band?(user)
+      User.band.include? user
+    end
+
 end

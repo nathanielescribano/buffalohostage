@@ -18,4 +18,5 @@ To implement (priority):
 
 To implement (low priority):
 * Add albums and artwork
+* Add track number (and ordering) 
 * Add javascript

@@ -2,7 +2,7 @@
 <h2> My Current Songs </h2>
 <% if @any_songs %>
   <% @user_songs.each do |song| %>
-    <div><%= format_song(song) %></div>
+    <div><%= format_song(song, @user) %></div>
   <% end %>
   <div> <%= link_to "Add Song", new_user_song_path(@user) %> </div>
 <% else %>

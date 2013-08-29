@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    # Limit this to be only current_user viewable 
     @user = User.find(params[:id])
     @user_songs = @user.songs
     # way to remove this redundancy?? 
