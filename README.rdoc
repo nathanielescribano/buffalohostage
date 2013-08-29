@@ -26,3 +26,7 @@ To implement (low priority):
 * Add bios to users 
 * Add user listing page
 * Tidy up and refactor code whenever possible 
+
+Potential Technologies to look at and use:
+* Javascript (coffeescript, jquery, angular, backbone, etc...)
+* HAML, SCSS
