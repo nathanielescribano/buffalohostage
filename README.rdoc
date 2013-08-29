@@ -1,9 +1,22 @@
 == README
 
 Music sharing website with social features.
-Things to do:
+
+Implemented:
+* Handles users
+* Handles bands (subset of users)
+* Has songs (not fully implemented)
+
+To implement (priority):
 * Add testing for everything (oops)
+* Anyone can stream songs 
+* Add mailer (introduce new users to the site) 
 * Make songs be public/private
+* Only band users can upload songs 
 * Make application.rb more concise 
-* Only admin users can upload/view private songs
-* Make the site look pretty with CSS, etc...
+* Only band users can view private songs
+* Make the site look pretty with CSS, bootstrap, etc...
+
+To implement (low priority):
+* Add albums and artwork
+* Add javascript

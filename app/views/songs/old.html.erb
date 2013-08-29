@@ -1,0 +1,17 @@
+<h2>New Song</h2>
+<div>Only upload songs which you have the creative rights to.</div>
+<%= form_for(@song) do |f| %>
+  <%= render 'shared/error_messages', object: @song %>
+  <%= f.label :name, "Song Title" %>
+  <%= f.text_field :name %>
+ 
+  <%= f.label :privacy, "Private?" %> 
+  <%= f.check_box :privacy %>
+
+  <%= f.submit %> 
+<% end %>
+
+<%= #form_tag upload_path, :method => "post", :multipart => true do %>
+  <%=# file_field_tag "mp3file" %>
+  <%= #submit_tag "upload" %>
+<% #end %>

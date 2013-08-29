@@ -1,1 +1,10 @@
 <h1><%= @user.name.titleize %></h1>
+<h2> My Current Songs </h2>
+<% if @any_songs %>
+  <% @user_songs.each do |song| %>
+    <div><%= format_song(song) %></div>
+  <% end %>
+<% else %>
+  <div> No songs </div>
+  <div> <%= link_to "Add Song", new_user_song_path(@user) %> 
+<% end %>

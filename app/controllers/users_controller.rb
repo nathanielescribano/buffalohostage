@@ -7,6 +7,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_songs = @user.songs
+    # way to remove this redundancy?? 
+    if @user_songs.count >= 1
+      @any_songs = true
+    else
+      @any_songs = false 
+    end
   end
 
   def new 

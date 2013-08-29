@@ -1,10 +1,34 @@
 class SongsController < ApplicationController
   include AWS::S3 
   BUCKET = 'eastelk'
+  before_filter :get_user
+
+  def get_user
+    @user = User.find(params[:user_id]) # what about current user?
+  end
 
   def index
-    @songs = Song.all # Fix this to show only user songs
-    @a_songs = AWS::S3::Bucket.find(BUCKET).objects
+    if @user.songs.count >= 1
+      @any_songs = true
+      @my_songs = @user.songs
+      # @a_songs = AWS::S3::Bucket.find(BUCKET).objects
+    else 
+      @any_song = false 
+    end
+  end
+
+  def new
+    @song = @user.songs.new
+  end
+
+  def create
+    @song = @user.songs.new(song_params)
+    if @song.save
+      flash[:success] = "Song added."
+      redirect_to root_path # Change this later 
+    else
+      render 'new'
+    end
   end
 
   def upload
@@ -29,8 +53,14 @@ class SongsController < ApplicationController
   end
 
   private
+
     def sanitize_filename(file_name)
       just_filename = File.basename(file_name)
       just_filename.sub(/[^\w\.\-]/, '_')
     end
+
+    def song_params
+      params.require(:song).permit(:title, :privacy) 
+    end
+ 
 end
