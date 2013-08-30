@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 gem 'bcrypt-ruby', '3.0.1'
 
+# Amazon service for serving mp3 files
 gem 'aws-s3', :require => 'aws/s3'
 
 # Use sqlite3 as the database for Active Record
@@ -11,8 +12,10 @@ group :development do
   gem 'sqlite3'
 end
 
+# For deployment on heroku
 group :production do 
   gem 'pg', '0.15.1'
+  gem 'rails_12factor'
 end
 
 # Use SCSS for stylesheets
