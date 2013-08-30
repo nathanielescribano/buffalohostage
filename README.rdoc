@@ -6,9 +6,9 @@ Implemented:
 * Handles users
 * Handles bands (subset of users)
 * Has songs (songs can be public/private and belong to certain users)
+* Added bootstrap
 
 To implement (priority):
-* Add bootstrap menu bar 
 * Bands can upload songs
 * Show page only shows songs for band users
 * change routing to show band names instead of user_id
@@ -16,7 +16,6 @@ To implement (priority):
 * Anyone can stream songs 
 * Add mailer (introduce new users to the site) 
 * Only band users can view private songs
-* Make the site look pretty with CSS, etc...
 
 To implement (low priority):
 * Songs have votes/likes
@@ -25,6 +24,7 @@ To implement (low priority):
 * Add javascript
 * Add bios to users 
 * Add user listing page
+* Make the site prettier 
 * Tidy up and refactor code whenever possible 
 
 Potential Technologies to look at and use:
