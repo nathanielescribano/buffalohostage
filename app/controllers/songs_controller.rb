@@ -28,7 +28,7 @@ class SongsController < ApplicationController
     @song = @user.songs.new(song_params)
     if @song.save
       flash[:success] = "Song added."
-      redirect_to root_path # Change this later 
+      redirect_to upload_path # Change this later 
     else
       render 'new'
     end
