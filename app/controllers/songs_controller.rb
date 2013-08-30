@@ -29,7 +29,7 @@ class SongsController < ApplicationController
     @song = @user.songs.new(song_params)
     if @song.save
       flash[:success] = "Song added."
-      redirect_to upload_path # Change this later 
+      redirect_to user_path(@current_user) # Change this later 
     else
       render 'new'
     end
@@ -72,8 +72,7 @@ class SongsController < ApplicationController
     end
 
     def is_song_owner?
-      unless is_band?(@current_user) and @current_user == 
-                                                 Song.find(params[:id]).user
+      unless is_band?(@current_user) and @current_user == @user
         redirect_to bands_url, notice: "Access not granted."
       end
     end
