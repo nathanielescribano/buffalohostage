@@ -3,6 +3,7 @@ class SongsController < ApplicationController
   require './app/helpers/sessions_helper.rb' # change this? 
   BUCKET = 'eastelk'
   before_filter :get_user
+  before_action :is_song_owner?, only: [:new, :upload, :delete]
 
   def get_user
     @user = User.find(params[:user_id]) 
@@ -68,6 +69,13 @@ class SongsController < ApplicationController
  
     def is_band?(user)
       User.band.include? user
+    end
+
+    def is_song_owner?
+      unless is_band?(@current_user) and @current_user == 
+                                                 Song.find(params[:id]).user
+        redirect_to bands_url, notice: "Access not granted."
+      end
     end
 
 end
