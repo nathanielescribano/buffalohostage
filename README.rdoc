@@ -9,13 +9,14 @@ Implemented:
 * Added bootstrap
 
 To implement (priority):
-* Bands can upload songs
-* Show page only shows songs for band users
+* Add security so current user can't access other peoples profiles, upload, etc...!!!!
+* Only bands can view private songs
+* Bands can upload songs 
+* Anyone can stream songs
+* Show page only shows songs for band users (part of security mentioned)
 * change routing to show band names instead of user_id
 * Add testing for everything (oops)
-* Anyone can stream songs 
 * Add mailer (introduce new users to the site) 
-* Only band users can view private songs
 
 To implement (low priority):
 * Songs have votes/likes
