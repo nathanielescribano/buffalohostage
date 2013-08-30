@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   require './app/helpers/sessions_helper.rb' # change this? 
   BUCKET = 'eastelk'
   before_filter :get_user
-  before_action :is_song_owner?, only: [:new, :upload, :delete]
+  before_action :is_song_owner?, only: [:new, :update, :upload, :delete]
 
   def get_user
     @user = User.find(params[:user_id]) 
@@ -35,6 +35,10 @@ class SongsController < ApplicationController
     end
   end
 
+  def update
+
+  end
+
   def upload
     begin 
       song_name = sanitize_filename(params[:mp3file].original_filename)
@@ -48,12 +52,17 @@ class SongsController < ApplicationController
   end
 
   def delete
-    if params[:song]
-      AWS::S3::S3Object.find(params[:song], BUCKET).delete
-      redirect_to songs_path
-    else
-      render :text => "no song found to delete."
-    end
+    # Change this once uploading is implemented
+    @song = Song.find(params[:id])
+    print @song.name
+    @song.destroy
+    redirect_to user_path(@current_user)
+    #if params[:song]
+    #  AWS::S3::S3Object.find(params[:song], BUCKET).delete
+    #  redirect_to songs_path
+    #else
+    #  render :text => "no song found to delete."
+    #end
   end
 
   private
