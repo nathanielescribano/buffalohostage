@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include AWS::S3
 
   def index
     @bands = User.band
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome."
+      create_bucket(@user) if User.band.include? @user
       redirect_to @user
     else
       render 'new'
@@ -36,6 +38,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                          :password_confirmation)
+    end
+
+    def create_bucket(user)
+      # Amazon names cannot have spaces
+      bucket_name = user.name.gsub(/\s/, '_')
+      Bucket.create(bucket_name) unless Service.buckets.include? bucket_name
     end
 
 end

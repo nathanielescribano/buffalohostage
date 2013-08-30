@@ -4,6 +4,7 @@ Buffalohostage::Application.routes.draw do
     resources :songs
   end
   resources :sessions, only: [:new, :create, :destroy]
+  get '/contact', to: 'static_pages#contact'
   get '/bands',   to: 'users#index'
   get '/signup',  to: 'users#new'
   get '/signin',  to: 'sessions#new'
