@@ -22,6 +22,7 @@ module Buffalohostage
       :access_key_id => S3_CREDENTIALS[:access_key_id],
       :secret_access_key => S3_CREDENTIALS[:secret_access_key]
     )
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
 

@@ -1,12 +1,21 @@
-<h1> Buffalo Hostage </h1>
-<ul>
-  <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "Music", bands_path %></li>
-  <% if signed_in? %>
-    <li><%= link_to "Profile", user_path(@current_user) %></li>
-    <li><%= link_to "Log Out", signout_path %></li>
-  <% else  %>
-    <li><%= link_to "Log In", signin_path %></li>
-    <li><%= link_to "Sign Up", signup_path %></li>
-  <% end %>
-</ul>
+<header class="navbar navbar-fixed-top navbar-inverse">
+ <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "Buffalo Hostage", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Music", bands_path %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Profile", user_path(@current_user) %></li>
+            <li><%= link_to "Log Out", signout_path %></li>
+          <% else  %>
+            <li><%= link_to "Log In", signin_path %></li>
+            <li><%= link_to "Sign Up", signup_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+

@@ -1,10 +1,14 @@
-<%= form_for([@user, @song]) do |f| %>
-  <%= render 'shared/error_messages', object: @song %>
-  <%= f.label :title, "Song Title" %>
-  <%= f.text_field :title %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for([@user, @song]) do |f| %>
+      <%= render 'shared/error_messages', object: @song %>
+      <%= f.label :title, "Song Title" %>
+      <%= f.text_field :title %>
 
-  <%= f.label :privacy, "Private?" %>
-  <%= f.check_box :privacy %>
+      <%= f.label :privacy, "Private?" %>
+      <%= f.check_box :privacy %>
 
-  <%= f.submit "Create song" %>
-<% end %>
+      <%= f.submit "Create song" %>
+    <% end %>
+  </div>
+</div>
