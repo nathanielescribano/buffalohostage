@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   include AWS::S3 
   require './app/helpers/sessions_helper.rb' # change this? 
-  BUCKET = 'eastelk'
+  BUCKET = 'buffalo_hostage'
   before_filter :get_user
   before_action :is_song_owner?, only: [:new, :update, :upload, :delete]
 
