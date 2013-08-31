@@ -3,7 +3,9 @@
 <% if @any_songs %>
   <% @user_songs.each do |song| %>
     <div>
-         <%= format_song(song, @user) %>  
+         <%= format_song(song, @user) %>
+         <%= link_to "Delete", user_song_path(@user, song), 
+                   data: { confirm: 'Are you sure?'}, method: :delete %>  
     </div>
   <% end %>
   <div> <%= link_to "Add Song", new_user_song_path(@user) %> </div>

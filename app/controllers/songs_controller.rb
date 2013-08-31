@@ -51,10 +51,9 @@ class SongsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     # Change this once uploading is implemented
     @song = Song.find(params[:id])
-    print @song.name
     @song.destroy
     redirect_to user_path(@current_user)
     #if params[:song]
