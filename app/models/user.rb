@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 
   BANDS = ["east elk", "haike", "nathaniel", "russell"] 
 
-  before_save :make_band, :create_remember_token, :format_user
+  before_validation :format_user
+  before_save :make_band, :create_remember_token
 
   scope :band, -> { where(band: true) }
 
