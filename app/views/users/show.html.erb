@@ -1,13 +1,25 @@
 <h1><%= @user.name.titleize %></h1>
 <h2> My Current Songs </h2>
 <% if @any_songs %>
-  <% @user_songs.each do |song| %>
-    <div>
-         <%= format_song(song, @user) %>
-         <%= link_to "Delete", user_song_path(@user, song), 
-                   data: { confirm: 'Are you sure?'}, method: :delete %>  
-    </div>
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>Songs</th>
+        <th>Private</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user_songs.each do |song| %>
+      <tr>
+         <td><%= song.title %></td>
+         <td><%= song.privacy.to_s.capitalize  %></td>
+         <td><%= link_to "Delete", user_song_path(@user, song), 
+                   data: { confirm: 'Are you sure?'}, method: :delete %></td> 
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
   <div> <%= link_to "Add Song", new_user_song_path(@user) %> </div>
 <% else %>
   <div> No songs </div>

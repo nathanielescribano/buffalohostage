@@ -1,8 +1,17 @@
 <h1> <%= @user.name.titleize %> Songs </h1>
 <% if @any_songs %>
-  <% @songs.each do |song| %>
-    <div><%= format_song(song, nil) %></div>
-  <% end %>
+  <table>
+    <thead>
+      <th>Songs</th>
+    </thead>
+    <tbody>
+      <% @songs.each do |song| %>
+        <tr>
+          <td><%= song.title %></td>
+        <tr>
+    </tbody>
+<% end %>
+  </table>
 <% else %>
   <div> No Songs for this band </div> 
 <% end %>

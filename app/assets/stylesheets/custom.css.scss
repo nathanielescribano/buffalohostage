@@ -107,3 +107,10 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+
+/* tables */
+
+table, th, td {
+  margin-left: auto;
+  margin-right: auto;
+}
