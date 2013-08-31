@@ -1,4 +1,7 @@
 <h1> Bands </h1>
 <% @bands.each do |band| %>
-<div><%= link_to band.name.titleize, user_songs_path(band) %></div>
+<div>
+<%= link_to band.name.titleize, user_songs_path(band), class: 'links', 
+                                                                  id: 'bands' %>
+</div>
 <% end %>

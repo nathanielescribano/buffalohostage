@@ -14,15 +14,19 @@
       <tr>
          <td><%= song.title %></td>
          <td><%= song.privacy.to_s.capitalize  %></td>
-         <td><%= link_to "Delete", user_song_path(@user, song), 
+         <td><%= link_to "Delete", user_song_path(@user, song), class: 'links', 
                    data: { confirm: 'Are you sure?'}, method: :delete %></td> 
       </tr>
     <% end %>
     </tbody>
   </table>
-  <div> <%= link_to "Add Song", new_user_song_path(@user) %> </div>
+  <div> 
+    <%= link_to "Add Song", new_user_song_path(@user), { class: 'links' } %>
+  </div>
 <% else %>
   <div> No songs </div>
    <!-- Replace redundancy?-->
-  <div> <%= link_to "Add Song", new_user_song_path(@user) %> </div>
+  <div> 
+    <%= link_to "Add Song", new_user_song_path(@user), class: 'links' %> 
+  </div>
 <% end %>
