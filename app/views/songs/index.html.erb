@@ -2,6 +2,9 @@
 <% if @any_songs %>
   <h2 class="play_song">Play Song</h2>
   <section id="audio">
+    <audio controls>
+      <source src=<%= @url %> type="audio/mpeg">
+    </audio>
   </section>
   <table class="song_index">
     <thead>
@@ -10,7 +13,12 @@
     <tbody>
       <% @songs.each do |song| %>
         <tr>
-          <td><%= song.title %></td>
+          <% if @uploaded_songs.include? song.title + '.mp3' %>
+            <td><%= link_to song.title, url_for_song(@user, song), 
+                                                        class: "html5" %></td>
+          <% else %>
+            <td><%= song.title %></td>
+          <% end %>
         <tr>
     </tbody>
 <% end %>

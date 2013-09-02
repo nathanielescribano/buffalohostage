@@ -14,8 +14,9 @@ class SongsController < ApplicationController
   def index
     is_band?(@current_user) ? @songs = @user.songs : @songs = @user.songs.public
     if @songs.count >= 1
+      @url ||= ''
       @any_songs = true
-      # @a_songs = AWS::S3::Bucket.find(BUCKET).objects
+      @uploaded_songs = uploaded?(@user, @songs)
     else 
       @any_song = false 
     end
@@ -89,5 +90,15 @@ class SongsController < ApplicationController
         redirect_to bands_url, notice: "Access not granted."
       end
     end
-  
+
+    def uploaded?(user, songs)
+      bucket = Bucket.find(BUCKET)
+      find_str = user.name + '/'
+      uploaded_songs = bucket.objects(user.name.gsub(/\s/, '+'))[1..-1]
+      uploaded_songs.map! do |s|
+        s = s.key.gsub(/#{find_str}/, '')
+      end
+      return uploaded_songs 
+    end 
+
 end
