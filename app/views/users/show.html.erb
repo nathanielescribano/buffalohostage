@@ -7,6 +7,7 @@
         <th>Songs</th>
         <th>Private</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,8 @@
       <tr>
          <td><%= song.title %></td>
          <td><%= song.privacy.to_s.capitalize  %></td>
+         <td><%= link_to "Upload", edit_user_song_path(@user, song), 
+                                                        class: 'links' %></td>
          <td><%= link_to "Delete", user_song_path(@user, song), class: 'links', 
                    data: { confirm: 'Are you sure?'}, method: :delete %></td> 
       </tr>

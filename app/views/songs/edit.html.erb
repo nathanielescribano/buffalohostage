@@ -1,0 +1,7 @@
+<h1>Upload</h1>
+<h2>Only use mp3 files</h2>
+<%= form_tag user_song_path(@current_user, @song), method: :put, 
+                                                         multipart: true do %>
+  <%= file_field_tag 'mp3file' %>
+  <%= submit_tag "Upload" %>
+<% end %>
