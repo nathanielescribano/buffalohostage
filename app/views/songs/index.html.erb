@@ -3,13 +3,13 @@
   <h2 class="play_song">Play Song</h2>
   <section id="audio">
   </section>
-  <table>
+  <table class="song_index">
     <thead>
       <th>Songs</th>
     </thead>
     <tbody>
       <% @songs.each do |song| %>
-        <tr class="song_index">
+        <tr>
           <td><%= song.title %></td>
         <tr>
     </tbody>
