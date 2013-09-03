@@ -17,3 +17,4 @@
 
 # Private Info
 /config/s3.yml
+/config/newrelic.yml
