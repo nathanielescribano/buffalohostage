@@ -7,13 +7,12 @@ Implemented:
 * Handles bands (subset of users)
 * Has songs (songs can be public/private and belong to certain users)
 * Added bootstrap
+* Authorization used for uploading/deleting.
+* Bands can upload songs
+* Anyone can stream songs
+* Only bands can view private songs
 
 To implement (priority):
-* Add security so current user can't access other peoples profiles, upload, etc...!!!!
-* Only bands can view private songs
-* Bands can upload songs 
-* Anyone can stream songs
-* Show page only shows songs for band users (part of security mentioned)
 * change routing to show band names instead of user_id
 * Add testing for everything (oops)
 * Add mailer (introduce new users to the site) 
