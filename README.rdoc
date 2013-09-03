@@ -30,3 +30,7 @@ To implement (low priority):
 Potential Technologies to look at and use:
 * Javascript (coffeescript, jquery, angular, backbone, etc...)
 * HAML, SCSS
+
+Things to consider: 
+* Uniqueness of song names? 
+* case sensitive band names?
