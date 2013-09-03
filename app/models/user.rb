@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :songs 
 
-  BANDS = ["east elk", "haike", "nathaniel", "averoteriz", "wmitchell"] 
+  BANDS = ["east elk", "haike", "boredman","nathaniel", "averoteriz", 
+                                                               "wmitchell"] 
 
   before_validation :format_user
   before_save :make_band, :create_remember_token
