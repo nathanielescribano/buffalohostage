@@ -97,6 +97,7 @@ class SongsController < ApplicationController
       uploaded_songs = bucket.objects(user.name.gsub(/\s/, '+'))[1..-1]
       uploaded_songs.map! do |s|
         s = s.key.gsub(/#{find_str}/, '')
+        s = s.gsub(/_/, ' ')
       end
       return uploaded_songs 
     end 
