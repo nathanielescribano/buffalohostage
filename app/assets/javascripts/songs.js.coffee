@@ -8,5 +8,5 @@ $(document).ready ->
       ready: ->
         $(this).jPlayer "setMedia",
           mp3: $("#download-url-#{i}").attr("href")
-      swfPath: "/js"
+      cssSelectorAncestor: "#jp_container_#{i}"
       supplied: "mp3"

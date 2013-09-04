@@ -1,3 +1,10 @@
+<%=
+  # this needs more investigation..
+  # for some reason rails doesn't include
+  # songs.js everytime this action is called..
+  # so I'm manually including it..
+%>
+<%= javascript_include_tag 'songs' %>
 <h1> <%= @user.name.titleize %> Songs </h1>
 <% if @any_songs %>
   <h2 class="play_song">Play Song</h2>
