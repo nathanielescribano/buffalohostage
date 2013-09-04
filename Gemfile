@@ -14,6 +14,7 @@ gem 'aws-s3', :require => 'aws/s3'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
+  gem 'pry'
 end
 
 # For deployment on heroku

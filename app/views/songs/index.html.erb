@@ -5,14 +5,21 @@
   </section>
   <table class="song_index">
     <thead>
-      <th>Songs</th>
+      <th colspan="3" >Songs</th>
     </thead>
     <tbody>
-      <% @songs.each do |song| %>
+      <% @songs.to_enum.with_index(1) do |song, index| %>
         <tr>
           <% if @uploaded_songs.include? song.title + '.mp3' %>
-            <td><%= link_to song.title, url_for_song(@user, song), 
-                                                        class: "html5" %></td>
+            <td><%= link_to song.title, user_song_path(@user, song) %></td>
+            <td>
+              <div id="<%= "jquery_jplayer_#{index}" %>"></div>
+              <div id="<%= "jp_container_#{index}" %>">
+               <a href="#" class="jp-play">Play</a>
+               <a href="#" class="jp-pause">Pause</a>
+              </div>
+            </td>
+            <td><%= link_to "Download", url_for_song(@user, song), class: "download-url", id: "download-url-#{index}" %></td>
           <% else %>
             <td><%= song.title %></td>
           <% end %>

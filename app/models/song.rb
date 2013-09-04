@@ -3,4 +3,8 @@ class Song < ActiveRecord::Base
   scope :public, -> { where(privacy: false) }
 
   validates :title, presence: true, length: { maximum: 20 }, uniqueness: true 
+
+  def public?
+    !privacy
+  end
 end
