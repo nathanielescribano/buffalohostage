@@ -39,6 +39,16 @@ class SongsController < ApplicationController
     end
   end
 
+  def show
+    @song = Song.find(params[:id])
+    if @song.public? || is_song_owner?
+      render 'show'
+    else
+      flash[:error] = "Invalid permissions."
+      redirect_to user_path(@user)
+    end
+  end
+
   def update
     @song = Song.find(params[:id])
     song_name = format_file(@song.title)
