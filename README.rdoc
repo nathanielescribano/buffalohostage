@@ -13,7 +13,6 @@ Implemented:
 * Only bands can view private songs
 
 To implement (priority):
-* Comment code!!!
 * Improve/fix url_for_song helper function
 * change routing to show band names instead of user_id
 * ensure users are only uploading approved formats. 
