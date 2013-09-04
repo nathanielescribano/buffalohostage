@@ -12,6 +12,7 @@ class SongsController < ApplicationController
   end
 
   def index
+    # Allow band users to view private/public songs
     is_band?(@current_user) ? @songs = @user.songs : @songs = @user.songs.public
     if @songs.count >= 1
       @any_songs = true
@@ -33,7 +34,7 @@ class SongsController < ApplicationController
     @song = @user.songs.new(song_params)
     if @song.save
       flash[:success] = "Song added."
-      redirect_to user_path(@current_user) # Change this later 
+      redirect_to user_path(@current_user)
     else
       render 'new'
     end
@@ -59,6 +60,7 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     song_name = format_file(@song.title)
+    # Delete song from server if uploaded
     if S3Object.exists? song_name, BUCKET
       S3Object.delete song_name, BUCKET
       @song.destroy

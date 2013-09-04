@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :songs 
-
+  
+  # List of user names who are given band access to upload, etc...
   BANDS = ["east elk", "haike", "boredman","nathaniel", "averoteriz", 
                                                                "wmitchell"] 
 

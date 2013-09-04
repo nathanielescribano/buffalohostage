@@ -1,5 +1,6 @@
 module SongsHelper
 
+  # Creates the amazon s3 url for the songs. 
   def url_for_song(user, song)
     url = "https://s3.amazonaws.com/buffalo_hostage/"
     url = url + user.name.gsub(/\s/, '+') + '/'
