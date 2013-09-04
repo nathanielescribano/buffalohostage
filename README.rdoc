@@ -16,6 +16,7 @@ To implement (priority):
 * Comment code!!!
 * Improve/fix url_for_song helper function
 * change routing to show band names instead of user_id
+* ensure users are only uploading approved formats. 
 * Add testing for everything (oops)
 * Add mailer (introduce new users to the site) 
 
